@@ -48,6 +48,7 @@ for mp3 in "$playlist_dir"/*.mp3; do
   if [[ "$thumb" == *.webp ]]; then
     converted="$dir/${filename}.jpg"
     ffmpeg -y -i "$thumb" "$converted"
+    rm -f "$thumb" # remove original WebP
     thumb="$converted"
   fi
 
